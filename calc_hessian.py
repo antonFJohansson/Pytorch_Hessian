@@ -6,6 +6,10 @@ def calc_hessian(loss, network_param):
   Args:
     loss: The calculated loss value, e.g, loss = loss_fn(my_net(x), y)
     network_param: A generator containing the parameters of the neural network, e.g, network_param = my_net.parameters()
+  Returns:
+    The full hessian
+  The order of the parameters in the Hessian are those that are obtained by creating the list
+  [param.flatten() for param in my_net.parameters()]
   """
   
   param_list = [param for param in network_param]
