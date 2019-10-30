@@ -1,5 +1,12 @@
 def Hessian_vector_prod(loss, my_net):
-  
+  """
+  Calculates the the product of the Hessian with the gradient vector
+  Args:
+    loss: The calculated loss value, e.g, loss = loss_fn(my_net(x), y)
+    my_net: The trained network.
+  Returns:
+    The Hessian*Gradient vector product
+  """
   import copy
   my_net.zero_grad()
   para_store = [param for param in my_net.parameters()]
