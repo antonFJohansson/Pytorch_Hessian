@@ -21,10 +21,8 @@ def calc_hessian(loss, network_param):
   for col_ind in range(num_parameters):
     jacobian_vec = torch.zeros(num_parameters)
     jacobian_vec[col_ind] = 1.
-    if not col_ind == 0:
-      for param in param_list:
+    for param in param_list:
         param.grad.zero_()
-    #my_net.zero_grad()
     derivative_tensor.backward(jacobian_vec, retain_graph = True)
     hessian_col = torch.cat([param.grad.flatten() for param in param_list])
     hessian[:,col_ind] = hessian_col
